@@ -1,1 +1,4 @@
 node_modules
+.docz
+package-lock.json
+yarn.lock

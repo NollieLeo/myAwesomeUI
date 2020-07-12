@@ -1,10 +1,14 @@
 {
-  "name": "Awesome-ui",
+  "name": "awesome-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "docz dev",
+    "start": "npm run dev",
+    "build:doc": "rimraf doc-site && docz build",
+    "preview:doc": "docz serve"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +21,10 @@
     "@umijs/fabric": "^2.2.2",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
+    "docz": "^2.3.1",
+    "gatsby-plugin-less": "^4.0.2",
     "husky": "^4.2.5",
+    "less": "^3.11.3",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
