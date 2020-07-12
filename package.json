@@ -44,5 +44,8 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
