@@ -1,33 +1,33 @@
 import React, { FC } from 'react';
 import t from 'prop-types';
 
-import { AlertProps, KindMap } from './interface';
+import { AlertProps } from './interface';
 
 import './style';
 
 const prefixCls = 'awesome-alert';
 
-const kinds: KindMap = {
-  info: '#5352ED',
-  positive: '#2ED573',
-  negative: '#FF4757',
-  warning: '#FFA502'
-}
+const Alert: FC<AlertProps> = ({ children, kind = 'info', type = 'default', ...rest }) => {
+  function getClassName() {
+    if (type === 'default') {
+      return `${prefixCls} ${prefixCls}-${kind}`;
+    }
+    return `${prefixCls} ${prefixCls}-${kind}-outline`;
+  }
 
-const Alert: FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
-  <div
-    className={prefixCls}
-    style={{
-      background: kinds[kind],
-    }}
-    {...rest}
-  >
-    {children}
-  </div>
-);
+  return (
+    <div
+      className={getClassName()}
+      {...rest}
+    >
+      {children}
+    </div>
+  )
+};
 
 Alert.propTypes = {
-  kind: t.oneOf(['info', 'positive', 'negative', 'warning'])
+  kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
+  type: t.oneOf(['default', 'outline']),
 }
 
 export default Alert;

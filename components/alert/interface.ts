@@ -4,4 +4,5 @@ export type KindMap = Record<Kind, string>;
 
 export interface AlertProps {
   kind?: 'info' | 'positive' | 'negative' | 'warning';
+  type?: 'outline' | 'default';
 }

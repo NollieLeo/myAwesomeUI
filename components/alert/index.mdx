@@ -20,13 +20,15 @@ import './style'; // 引入组件样式
 <AwesomeBox 
   code={BasicDemoCode} 
   title="基本用法"
-  desc="使用kind控制Alert类型"
+  desc="使用kind控制Alert类型，使用type控制显示形式"
 >
   <BasicDemo />
 </AwesomeBox>
+
 
 ## API
 
 | 属性 | 说明     | 类型                                         | 默认值 |
 | ---- | -------- | -------------------------------------------- | ------ |
 | kind | 警告类型 | 'info'/'positive'/'negative'/'warning'非必填 | 'info' |
+| type | 警告框类型 | 'default'/'outline'非必填 | 'default' |
