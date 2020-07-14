@@ -1,6 +1,6 @@
-export type kind = 'info' | 'positive' | 'negative' | 'warning';
+export type Kind = 'info' | 'positive' | 'negative' | 'warning';
 
-export type KindMap = Record<kind, string>;
+export type KindMap = Record<Kind, string>;
 
 export interface AlertProps {
   kind?: 'info' | 'positive' | 'negative' | 'warning';

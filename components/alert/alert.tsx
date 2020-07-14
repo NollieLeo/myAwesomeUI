@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import t from 'prop-types';
 
 import { AlertProps, KindMap } from './interface';
+
+import './style';
 
 const prefixCls = 'awesome-alert';
 
@@ -12,7 +14,7 @@ const kinds: KindMap = {
   warning: '#FFA502'
 }
 
-const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
+const Alert: FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
   <div
     className={prefixCls}
     style={{
