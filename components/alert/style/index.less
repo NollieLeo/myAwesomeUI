@@ -1,8 +1,6 @@
+@import "../../style/basic-style.less";
+
 @popupPrefix: awesome-alert;
-@info:#5352ED;
-@positive:#2ED573;
-@negative:#FF4757;
-@warning:#FFA502;
 
 @typeColors:{
   info: @info;
@@ -18,10 +16,42 @@
 }
 
 .@{popupPrefix} {
-  padding: .3rem .5rem;
+  padding: 0.4rem 0.7rem;
   background: white;
   border-radius: 3px;
-  color: white;
+  color: @basic-dark;
+  &-slide-up-leave {
+    animation: alertSlideUpOut 0.3s @ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+  }
+  &-message {
+    font-size: 1.1rem;
+  }
+  &-description {
+    font-size: 1rem;
+    color: @basic-dark-faded;
+  }
+  &-close {
+    color: @basic-dark-faded;
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: .2s;
+    &:hover {
+      color:@basic-dark;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      &:hover {
+        color: @basic-dark-faded;
+      }
+    }
+  }
 }
 
 each(@typeColors,{
@@ -32,3 +62,18 @@ each(@typeColors,{
     .getOutLine(@value);
   }
 });
+
+
+
+@keyframes alertSlideUpOut {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+}
