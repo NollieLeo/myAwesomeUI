@@ -1,7 +1,14 @@
 import React, { FC, useState } from 'react';
 import t from 'prop-types';
 
-import { CloseOutlined } from '@ant-design/icons';
+import {
+  CloseOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  InfoCircleOutlined,
+  ExclamationCircleOutlined,
+} from '@ant-design/icons';
+
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { AlertProps } from './interface';
@@ -12,21 +19,29 @@ const prefixCls = 'awesome-alert';
 
 const Alert: FC<AlertProps> = ({
   kind = 'info',
-  type = 'default',
-  showIcon = false,
+  showClosedIcon = false,
   message,
   description,
   style,
   closable = true,
+  showIcon = false,
   ...props
 }) => {
   const [closing, setClosing] = useState(false);
   const [closed, setClosed] = useState(false);
   const ref = React.useRef<HTMLElement>();
 
+  // kind类型
+  const iconMapOutlined = {
+    positive: CheckCircleOutlined,
+    info: InfoCircleOutlined,
+    negative: CloseCircleOutlined,
+    warning: ExclamationCircleOutlined,
+  };
+
   const alertClassnames = classNames(
     prefixCls,
-    type === 'default' ? `${prefixCls} ${prefixCls}-${kind}` : `${prefixCls} ${prefixCls}-${kind}-outline`,
+    `${prefixCls} ${prefixCls}-${kind}` ,
   );
 
   const alertCloseIconClassnames = classNames(
@@ -62,13 +77,20 @@ const Alert: FC<AlertProps> = ({
       >
         <div className={`${prefixCls}-header`}>
           <span className={`${prefixCls}-message`}>
-            {message}
+            {
+              showIcon && React.createElement(iconMapOutlined[kind], {
+                className: `${prefixCls}-icon-${kind}`
+              })
+            }
+            <span>
+              {message}
+            </span>
           </span>
 
           {
-            showIcon &&
+            showClosedIcon &&
             <span
-              onClick={(e) => closable && handleClosed(e)}
+              onClick={(e) => closable && handleClosed(e)!}
               className={alertCloseIconClassnames}>
               <CloseOutlined />
             </span>
@@ -84,7 +106,6 @@ const Alert: FC<AlertProps> = ({
 
 Alert.propTypes = {
   kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
-  type: t.oneOf(['default', 'outline']),
   message: t.node,
 }
 

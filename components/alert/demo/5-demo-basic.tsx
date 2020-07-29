@@ -6,9 +6,8 @@ export default () => (
     <Alert
       kind="info"
       message="提示"
-      showIcon
+      showClosedIcon
       description="这是一条信息带有描述的信息"
-      type="outline"
     />
   </div>
 )

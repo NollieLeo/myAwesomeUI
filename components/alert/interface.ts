@@ -7,13 +7,13 @@ export type KindMap = Record<Kind, string>;
 export interface AlertProps {
   kind?: 'info' | 'positive' | 'negative' | 'warning';
 
-  type?: 'outline' | 'default';
-
   message: React.ReactNode;
 
   description?: React.ReactNode;
 
-  showIcon?: boolean;
+  showIcon?:boolean;
+
+  showClosedIcon?: boolean;
 
   style?: React.CSSProperties;
 

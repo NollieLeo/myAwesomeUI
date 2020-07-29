@@ -33,14 +33,14 @@ const demosObj = [
     node: <BasicDemo2 />
   },
   {
-    title: '外观类型',
-    desc: '2种外观类型',
+    title: '加入图标',
+    desc: '4中类型对应4种图标',
     code: BasicDemoCode3,
     node: <BasicDemo3 />
   },
   {
     title:'关闭按钮',
-    desc:'可通过showIcon来控制关闭按钮的显示与隐藏\n 通过closable控制按钮是否启用',
+    desc:'可通过showClosedIcon来控制关闭按钮的显示与隐藏\n 通过closable控制按钮是否启用',
     code: BasicDemoCode4,
     node: <BasicDemo4 />
   },

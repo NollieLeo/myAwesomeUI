@@ -12,7 +12,6 @@
 .getOutLine(@color){
   background-color: fade(@color,40%);
   border: 1px solid lighten(@color,5%);
-  color: darken(@color,5%);
 }
 
 .@{popupPrefix} {
@@ -55,11 +54,13 @@
 }
 
 each(@typeColors,{
-  .@{popupPrefix}-@{key}{
-    background: @value;
-  }
-  .@{popupPrefix}-@{key}-outline {
+  .@{popupPrefix}-@{key} {
     .getOutLine(@value);
+  }
+  .@{popupPrefix}-icon-@{key}{
+    color: darken(@value,5%);
+    font-weight: bold;
+    margin-right: 5px;
   }
 });
 
