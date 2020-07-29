@@ -16,9 +16,9 @@
 
 .@{popupPrefix} {
   padding: 0.4rem 0.7rem;
+  color: @basic-dark;
   background: white;
   border-radius: 3px;
-  color: @basic-dark;
   &-slide-up-leave {
     animation: alertSlideUpOut 0.3s @ease-in-out-circ;
     animation-fill-mode: both;
@@ -31,15 +31,15 @@
     font-size: 1.1rem;
   }
   &-description {
-    font-size: 1rem;
     color: @basic-dark-faded;
+    font-size: 1rem;
   }
   &-close {
-    color: @basic-dark-faded;
-    cursor: pointer;
     margin-left: auto;
-    font-size: 1rem;
+    color: @basic-dark-faded;
     font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
     transition: .2s;
     &:hover {
       color:@basic-dark;

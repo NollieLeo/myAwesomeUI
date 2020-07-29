@@ -11,7 +11,7 @@ export interface AlertProps {
 
   description?: React.ReactNode;
 
-  showIcon?:boolean;
+  showIcon?: boolean;
 
   showClosedIcon?: boolean;
 

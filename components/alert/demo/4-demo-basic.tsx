@@ -7,4 +7,4 @@ export default () => (
     <br />
     <Alert kind="info" message="这是一条信息，不可删除" showClosedIcon closable={false} />
   </div>
-)
+);

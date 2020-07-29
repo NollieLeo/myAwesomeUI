@@ -39,22 +39,16 @@ const Alert: FC<AlertProps> = ({
     warning: ExclamationCircleOutlined,
   };
 
-  const alertClassnames = classNames(
-    prefixCls,
-    `${prefixCls} ${prefixCls}-${kind}` ,
-  );
+  const alertClassnames = classNames(prefixCls, `${prefixCls} ${prefixCls}-${kind}`);
 
-  const alertCloseIconClassnames = classNames(
-    `${prefixCls}-close`,
-    {
-      [`${prefixCls}-close-disabled`]: !closable,
-    },
-  )
+  const alertCloseIconClassnames = classNames(`${prefixCls}-close`, {
+    [`${prefixCls}-close-disabled`]: !closable,
+  });
 
   const handleClosed = (e: React.MouseEvent<HTMLSpanElement>) => {
     setClosing(true);
     props.onClose?.(e);
-  }
+  };
 
   const animationEnd = () => {
     setClosing(false);
@@ -62,51 +56,43 @@ const Alert: FC<AlertProps> = ({
     props.afterClose?.();
   };
 
-  return (
-    !closed ? <Animate
+  return !closed ? (
+    <Animate
       showProp="data-show"
       onEnd={animationEnd}
       transitionName={`${prefixCls}-slide-up`}
       component=""
     >
-      <div
-        className={alertClassnames}
-        style={style}
-        data-show={!closing}
-        ref={ref}
-      >
+      <div className={alertClassnames} style={style} data-show={!closing} ref={ref}>
         <div className={`${prefixCls}-header`}>
           <span className={`${prefixCls}-message`}>
-            {
-              showIcon && React.createElement(iconMapOutlined[kind], {
-                className: `${prefixCls}-icon-${kind}`
-              })
-            }
-            <span>
-              {message}
-            </span>
+            {showIcon &&
+              React.createElement(iconMapOutlined[kind], {
+                className: `${prefixCls}-icon-${kind}`,
+              })}
+            <span>{message}</span>
           </span>
 
-          {
-            showClosedIcon &&
+          {showClosedIcon && (
             <span
               onClick={(e) => closable && handleClosed(e)!}
-              className={alertCloseIconClassnames}>
+              className={alertCloseIconClassnames}
+            >
               <CloseOutlined />
             </span>
-          }
+          )}
         </div>
-        <span className={`${prefixCls}-description`}>
-          {description}
-        </span>
+        <span className={`${prefixCls}-description`}>{description}</span>
       </div>
-    </Animate> : ''
-  )
+    </Animate>
+  ) : (
+    ''
+  );
 };
 
 Alert.propTypes = {
   kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
   message: t.node,
-}
+};
 
 export default Alert;
