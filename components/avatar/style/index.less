@@ -3,24 +3,21 @@
 @popupPrefix: awesome-avatar;
 
 .@{popupPrefix} {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: rgba(0,0,0,.65);
-  font-size: 14px;
   position: relative;
   display: inline-block;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  color: rgba(0,0,0,.65);
+  font-size: 14px;
+  line-height: 32px;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
   background: #ccc;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  &-image {
-
-  }
   &-icon {
     color: #fff;
   }
@@ -33,13 +30,13 @@
   &-large {
     width: 40px;
     height: 40px;
-    line-height: 40px;
     font-size: 20px;
+    line-height: 40px;
   }
   &-small {
     width: 24px;
     height: 24px;
-    line-height: 24px;
     font-size: 11px;
+    line-height: 24px;
   }
 }
