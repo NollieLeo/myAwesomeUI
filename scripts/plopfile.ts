@@ -43,8 +43,13 @@ export default function(plop: NodePlopAPI) {
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../components/{{kebabCase name}}/demo/basic.tsx'),
-        templateFile: path.resolve(__dirname, '../templates/component/demo/basic.hbs'),
+        path: path.resolve(__dirname, '../components/{{kebabCase name}}/demo/1-demo-basic.tsx'),
+        templateFile: path.resolve(__dirname, '../templates/component/demo/1-demo-basic.hbs'),
+      },
+      {
+        type: 'add',
+        path: path.resolve(__dirname, '../components/{{kebabCase name}}/demo/index.tsx'),
+        templateFile: path.resolve(__dirname, '../templates/component/demo/index.hbs'),
       },
       {
         type: 'add',

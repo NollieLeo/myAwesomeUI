@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import t from 'prop-types';
 
 import {
   CloseOutlined,
@@ -18,13 +17,13 @@ import './style';
 const prefixCls = 'awesome-alert';
 
 const Alert: FC<AlertProps> = ({
-  kind = 'info',
-  showClosedIcon = false,
+  showIcon,
+  showClosedIcon,
+  closable,
+  kind,
   message,
   description,
   style,
-  closable = true,
-  showIcon = false,
   ...props
 }) => {
   const [closing, setClosing] = useState(false);
@@ -67,7 +66,7 @@ const Alert: FC<AlertProps> = ({
         <div className={`${prefixCls}-header`}>
           <span className={`${prefixCls}-message`}>
             {showIcon &&
-              React.createElement(iconMapOutlined[kind], {
+              kind && React.createElement(iconMapOutlined[kind], {
                 className: `${prefixCls}-icon-${kind}`,
               })}
             <span>{message}</span>
@@ -85,14 +84,16 @@ const Alert: FC<AlertProps> = ({
         <span className={`${prefixCls}-description`}>{description}</span>
       </div>
     </Animate>
-  ) : (
-    ''
-  );
+  ) : null;
 };
 
-Alert.propTypes = {
-  kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
-  message: t.node,
-};
+Alert.defaultProps = {
+  showClosedIcon: false as AlertProps['showClosedIcon'],
+  closable: true as AlertProps['closable'],
+  showIcon: false as AlertProps['showIcon'],
+  kind: 'info' as AlertProps['kind'],
+}
+
+
 
 export default Alert;
